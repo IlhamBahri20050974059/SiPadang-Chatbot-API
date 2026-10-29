@@ -12,6 +12,10 @@ app.use(express.json());
 const apiKey = process.env.GEMINI_API_KEY || '';
 const genAI = new GoogleGenerativeAI(apiKey);
 
+app.get('/', (req, res) => {
+  res.send('✅ API SiPadang AI Berhasil Berjalan!');
+});
+
 app.post('/api/sipadang/chat', async (req, res) => {
   try {
     const { message, history } = req.body;
